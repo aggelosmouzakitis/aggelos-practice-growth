@@ -1,0 +1,19 @@
+{
+  "name": "aggelos-practice-growth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Practice Growth consulting for therapists: the static site for practice.aggelosmouzakitis.com",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node scripts/build.mjs && node scripts/check.mjs",
+    "serve": "node scripts/serve.mjs",
+    "qa": "node scripts/build.mjs && node scripts/qa/run.mjs",
+    "assets": "python3 -I scripts/assets/images.py && node scripts/assets/render.mjs"
+  }
+}

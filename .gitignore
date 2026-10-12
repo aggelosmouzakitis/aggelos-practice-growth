@@ -1,0 +1,7 @@
+# Netlify CLI state
+.netlify/
+
+node_modules/
+qa-output/
+__pycache__/
+.DS_Store

@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- The 1200x630 social preview, composed from the hero: same fonts, colours,
+     portrait treatment and grain. Rendered by scripts/assets/render.mjs to
+     src/social/practice-growth-og.jpg. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:'Inter';font-weight:400 700;src:url(../../src/fonts/inter-v20-latin.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:600 900;src:url(../../src/fonts/inter-tight-v9-latin.woff2) format('woff2')}
+@font-face{font-family:'Archivo Black';font-weight:400;src:url(../../src/fonts/archivo-black-v23-latin.woff2) format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#252321;color:#F3F0E8;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.card{position:relative;width:1200px;height:630px;display:flex;align-items:center;gap:56px;padding:0 80px}
+.grain{position:absolute;inset:0;opacity:.06;background-image:url(../../src/img/grain.webp);background-size:160px 160px;pointer-events:none}
+.copy{flex:1 1 auto;min-width:0}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:52px}
+.brand-name{font-family:'Inter Tight';font-size:30px;font-weight:750;line-height:1;letter-spacing:-.035em}
+.brand-name i{font-style:normal;color:#DDA58F}
+.brand-rule{width:1px;height:26px;background:rgba(243,240,232,.34)}
+.brand-sub{font-family:'Inter Tight';font-size:21px;font-weight:650;line-height:1;letter-spacing:-.01em;color:#C9BFB5}
+.eyebrow{margin:0 0 22px;font-size:17px;font-weight:700;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;color:#DDA58F}
+h1{margin:0;font-family:'Archivo Black';font-weight:400;font-size:62px;line-height:1.04;letter-spacing:-.04em}
+h1 span{display:block;white-space:nowrap}
+.offer{margin:34px 0 0;font-size:23px;font-weight:500;line-height:1.4;color:#C9BFB5}
+.offer b{font-weight:650;color:#F3F0E8}
+.portrait{flex:0 0 auto;position:relative;width:296px;height:296px;margin:14px}
+.ring{position:absolute;inset:-14px;border:1px solid rgba(221,165,143,.5);border-radius:50%}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;filter:grayscale(1) contrast(1.12) brightness(.96) sepia(.14)}
+.foot{position:absolute;left:80px;bottom:40px;font-size:17px;font-weight:600;letter-spacing:.02em;color:#C9BFB5}
+.bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:#9B4D3B}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="copy">
+    <div class="brand"><span class="brand-name">Aggelos<i>.</i></span><span class="brand-rule"></span><span class="brand-sub">Practice Growth</span></div>
+    <p class="eyebrow">Practice growth consulting for therapists</p>
+    <h1><span>You’ve done the work.</span><span>Where are the clients?</span></h1>
+    <p class="offer">Start with the Practice Growth X-Ray <span>·</span> <b>€149</b></p>
+  </div>
+  <div class="portrait"><span class="ring"></span><img src="../../src/img/aggelos-home-square-800.webp" alt=""></div>
+  <div class="foot">practice.aggelosmouzakitis.com</div>
+  <div class="grain"></div>
+  <div class="bar"></div>
+</div>
+<script>
+document.fonts.ready.then(function () {
+  var h = document.querySelector('h1'), col = document.querySelector('.copy');
+  for (var px = 64; px > 40; px -= 1) {
+    h.style.fontSize = px + 'px';
+    var widest = Math.max.apply(null, Array.from(h.children).map(function (s) { return s.scrollWidth; }));
+    if (widest <= col.clientWidth) break;
+  }
+  document.body.setAttribute('data-ready', '1');
+});
+</script>
+</body>
+</html>

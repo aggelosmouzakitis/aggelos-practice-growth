@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://practice.aggelosmouzakitis.com/sitemap.xml
