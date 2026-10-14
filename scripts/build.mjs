@@ -35,7 +35,7 @@ const INDEXABLE = CONTEXT === 'production';
 const CONNECT_SRC = ['https://api.emailjs.com', 'https://script.google.com', 'https://script.googleusercontent.com'];
 
 const PAGES = ['index.html', '404.html'];
-const ENQUIRY_ORIGINS = ['hero', 'xray', 'final'];
+const ENQUIRY_ORIGINS = ['hero', 'week', 'final'];
 
 function fail(msg) {
   console.error('build: ' + msg);
@@ -104,10 +104,10 @@ const css = rewriteAssets(cssSource, 'site.css')
 // ── 5. Pages ──────────────────────────────────────────────────────────────────
 const enquiryPartial = fs.readFileSync(path.join(SRC, 'partials', 'enquiry.html'), 'utf8');
 
-// Terms that must not break at their hyphen or dash on narrow screens ("X- / Ray").
+// Terms that must not break at their slash on narrow screens ("€59/ / month").
 // Wrapped in visible text only: never inside tags (attributes), <title>, <script>
 // (the JSON-LD) or <style>, so the source copy stays exactly as approved.
-const NO_BREAK = ['X-Ray', '3–5'];
+const NO_BREAK = ['€59/month'];
 function noBreak(html) {
   let raw = null;
   return html

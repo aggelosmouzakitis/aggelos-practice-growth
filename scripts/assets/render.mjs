@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 // Rasterises the derived images with Chromium (Playwright), from the repo root:
-//   node scripts/assets/render.mjs
+//   node scripts/assets/render.mjs        the icons
+//   node scripts/assets/render.mjs --og   the icons and the social preview
 //   - src/icons/icon.svg  -> favicon.ico (16/32/48), apple-touch-icon.png (180),
 //                            icon-192.png, icon-512.png
-//   - scripts/assets/og.html -> src/social/practice-growth-og.jpg (1200x630)
-// Output is committed; the Netlify build never runs this. Needs Playwright with a
-// Chromium (a global install is fine: npm i -g playwright).
+//   - scripts/assets/og.html -> src/social/marketing-hot-seat-og.png (1200x630)
+// The committed social preview is the approved design export, so it is only
+// re-rendered on request (--og), after a change to og.html. Output is committed;
+// the Netlify build never runs this. Needs Playwright with a Chromium (a global
+// install is fine: npm i -g playwright).
 
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -69,17 +72,24 @@ async function main() {
     fs.writeFileSync(path.join(ICONS, 'icon-192.png'), out[192]);
     fs.writeFileSync(path.join(ICONS, 'icon-512.png'), out[512]);
 
+    for (const f of ['favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) {
+      console.log(`src/icons/${f}  ${fs.statSync(path.join(ICONS, f)).size} bytes`);
+    }
+    if (!process.argv.includes('--og')) return;
+
     const og = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
     await og.goto(pathToFileURL(path.join(ROOT, 'scripts', 'assets', 'og.html')).href);
     await og.waitForSelector('body[data-ready]');
     await og.waitForFunction(() => Array.from(document.images).every((i) => i.complete && i.naturalWidth > 0));
+    const overflow = await og.evaluate(() => document.body.getAttribute('data-overflow'));
+    if (overflow) console.warn(`og.html: a headline line is ${overflow}px, wider than its column`);
     fs.mkdirSync(path.join(ROOT, 'src', 'social'), { recursive: true });
-    const jpg = path.join(ROOT, 'src', 'social', 'practice-growth-og.jpg');
-    await og.screenshot({ path: jpg, type: 'jpeg', quality: 88 });
-    for (const f of ['favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) {
-      console.log(`src/icons/${f}  ${fs.statSync(path.join(ICONS, f)).size} bytes`);
-    }
-    console.log(`src/social/practice-growth-og.jpg  ${fs.statSync(jpg).size} bytes`);
+    const png = path.join(ROOT, 'src', 'social', 'marketing-hot-seat-og.png');
+    await og.screenshot({ path: png, type: 'png' });
+    const size = fs.statSync(png).size;
+    console.log(`src/social/marketing-hot-seat-og.png  ${size} bytes`);
+    // Some link previews (WhatsApp) drop images over about 300 KB; npm test checks it.
+    if (size >= 300 * 1024) console.warn('  over 300 KB, which some link previews refuse: npm test will fail until it is smaller');
   } finally {
     await browser.close();
   }

@@ -1,9 +1,9 @@
 <div class="enquiry" data-tone="light" data-enquiry="{{o}}">
   <div class="enquiry-head">
-    <p class="kicker enquiry-title" id="xr-{{o}}-title" tabindex="-1">Practice Growth X-Ray · €149</p>
-    <button class="enquiry-close" type="button" aria-label="Close the enquiry form">Close <span aria-hidden="true">×</span></button>
+    <p class="enquiry-title" id="hs-{{o}}-title" tabindex="-1">The Marketing Hot Seat · €59/month</p>
+    <button class="enquiry-close" type="button" aria-label="Close"><span aria-hidden="true">×</span></button>
   </div>
-  <form class="enquiry-form" novalidate aria-labelledby="xr-{{o}}-title">
+  <form class="enquiry-form" novalidate aria-labelledby="hs-{{o}}-title">
     <div class="alert" role="alert" data-alert="failed" hidden>
       <p>Your request couldn’t be confirmed, so it may not have arrived. Your details are still here: try again, or email <a href="mailto:aggelos.mouzakitis@gmail.com">aggelos.mouzakitis@gmail.com</a>.</p>
     </div>
@@ -11,25 +11,25 @@
       <p><strong>Enquiry connection missing.</strong> The submission service didn’t load on this page, so nothing was sent. Please email <a href="mailto:aggelos.mouzakitis@gmail.com">aggelos.mouzakitis@gmail.com</a>.</p>
     </div>
     <div class="field">
-      <label class="field-label" for="xr-{{o}}-site">Website or directory profile <span class="field-opt">Optional</span></label>
-      <input class="input" id="xr-{{o}}-site" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next">
+      <label class="field-label" for="hs-{{o}}-site"><span>Website or directory profile</span><span class="field-opt">Optional</span></label>
+      <input class="input" id="hs-{{o}}-site" name="website" type="text" inputmode="url" autocomplete="url" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next">
     </div>
     <div class="field-row">
       <div class="field">
-        <label class="field-label" for="xr-{{o}}-email">Email</label>
-        <input class="input" id="xr-{{o}}-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="send" required aria-required="true" aria-invalid="false">
-        <p class="field-error" id="xr-{{o}}-email-err" hidden></p>
+        <label class="field-label" for="hs-{{o}}-email"><span>Email</span></label>
+        <input class="input" id="hs-{{o}}-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="send" required aria-required="true" aria-invalid="false">
+        <p class="field-error" id="hs-{{o}}-email-err" hidden></p>
       </div>
       <div class="field">
-        <label class="field-label" for="xr-{{o}}-phone">Phone number <span class="field-opt">Optional</span></label>
-        <input class="input" id="xr-{{o}}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="send">
+        <label class="field-label" for="hs-{{o}}-phone"><span>Phone number</span><span class="field-opt">Optional</span></label>
+        <input class="input" id="hs-{{o}}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="send">
       </div>
     </div>
-    <button class="btn submit" type="submit"><span class="submit-label">Request my X-Ray</span><span class="submit-sending" hidden>Sending…</span> <span class="submit-arrow" aria-hidden="true">→</span></button>
+    <button class="btn submit" type="submit"><span class="submit-label"><span>Send me the details</span><span aria-hidden="true">→</span></span><span class="submit-sending" hidden>Sending…</span></button>
     <p class="sr-only" role="status" aria-live="polite" data-live></p>
   </form>
   <div class="enquiry-sent" role="status" hidden>
-    <p class="sent-title" id="xr-{{o}}-done" tabindex="-1">Thanks. Your request has been sent.</p>
-    <p class="sent-text">I’ll reply to <strong data-sent-to></strong> about the next step.</p>
+    <p class="sent-title" id="hs-{{o}}-done" tabindex="-1">Thanks. Your request has been sent.</p>
+    <p class="sent-text">I’ll reply to <strong data-sent-to></strong> with the session times and joining details.</p>
   </div>
 </div>
