@@ -131,7 +131,7 @@ check('section headings in order', headings.filter((x) => x.level === 2).map((x)
   'What does a week look like?',
   'What can we work on?',
   'Who’s running this?',
-  '€59 per month. Come to a session and see how it works.',
+  'Come to a session and see how it works.',
   'A few things you might be wondering',
   'Bring the thing you’ve been trying to work out alone.'
 ].join(' | '), headings.filter((x) => x.level === 2).map((x) => x.text).join(' | '));

@@ -199,10 +199,9 @@ button{-webkit-tap-highlight-color:transparent}
 
 /* ── Price ─────────────────────────────────────────────────────────────────── */
 .price{background:var(--sand)}
-.price-title{margin:0;font-family:var(--display);font-weight:800;color:var(--ink)}
-.price-big{display:block;font-size:clamp(44px,calc(24px + 5.4vw),104px);line-height:.98;letter-spacing:-.045em}
-.price-sub{display:block;margin-top:clamp(10px,1.2vw,16px);max-width:20ch;font-size:clamp(28px,calc(20px + 1.6vw),46px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
-.price-grid{display:flex;flex-wrap:wrap;align-items:flex-start;gap:40px clamp(40px,6vw,96px);margin-top:clamp(40px,4.5vw,64px);padding-top:clamp(32px,3.5vw,44px);border-top:2px solid var(--ink)}
+/* The title is a standard section title (.h2 in .section-intro), with the same
+   gap to the content as the week and topics sections. */
+.price-grid{display:flex;flex-wrap:wrap;align-items:flex-start;gap:40px clamp(40px,6vw,96px);margin-top:clamp(44px,5vw,64px)}
 .price-copy{flex:7 1 420px;min-width:0}
 .prose .price-lead{max-width:30em;font-size:clamp(19px,calc(18.4px + .12vw),20px);line-height:1.55;color:var(--ink)}
 .guarantee{position:relative;overflow:hidden;flex:5 1 340px;min-width:0;background:var(--night);color:var(--paper);padding:clamp(28px,3.4vw,44px)}
